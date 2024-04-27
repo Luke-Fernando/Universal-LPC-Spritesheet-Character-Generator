@@ -120,7 +120,7 @@ $(document).ready(function () {
     e.preventDefault();
   });
 
-  $("#displayMode-compact").click(function () {
+  $("#displayMode-compact").change(function () {
     $("#chooser").toggleClass("compact");
   });
 
@@ -706,6 +706,7 @@ $(document).ready(function () {
                 universalFrameSize,
                 universalFrameSize
               );
+              console.log(img);
             } catch (err) {
               console.log(err);
             }
@@ -758,7 +759,7 @@ $(document).ready(function () {
 
     compactTogglers.each(function () {
       $(this).click(function () {
-        toggleCheck.prop("checked", !toggleCheck.prop("checked"));
+        toggleCheck.prop("checked", !(toggleCheck.prop("checked")));
         compactTogglers.each(function () {
           $(this).toggleClass("control-active");
         });
@@ -766,6 +767,21 @@ $(document).ready(function () {
     });
   }
   triggerCompact();
+
+  function indicateChoosed() {
+    const chooserInputs = $('[data-chooser-option="input"]');
+
+    chooserInputs.each(function () {
+      $(this).change(function () {
+        chooserInputs.parent().removeClass("chooser-option-checked");
+        $(this).parent().addClass("chooser-option-checked");
+      });
+      if ($(this).prop('checked')) {
+        $(this).parent().addClass("chooser-option-checked");
+      }
+    })
+  }
+  indicateChoosed();
 });
 
 function splitCsv(str) {

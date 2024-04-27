@@ -13,7 +13,6 @@
 	<script type="text/javascript" src="jhash-2.1.min.js"></script>
 	<script type="text/javascript" src="sources/custom-animations.js"></script>
 	<script type="text/javascript" src="sources/chargen.js"></script>
-	<script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
 </head>
 
 <body>
@@ -46,6 +45,14 @@
 				<label class="control-label">Import/Export:</label>
 				<button type="button" class="exportToClipboard">Export to Clipboard (JSON)</button>
 			</div> -->
+					<button class="ucg-customizer-controler-show-toggler">
+						<svg class="ucg-customizer-controler-show-toggler-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+							<path fill="currentColor" fill-rule="evenodd"
+								d="M13.488 4.43a.75.75 0 0 1 .081 1.058L7.988 12l5.581 6.512a.75.75 0 1 1-1.138.976l-6-7a.75.75 0 0 1 0-.976l6-7a.75.75 0 0 1 1.057-.081"
+								clip-rule="evenodd" />
+							<path fill="currentColor" d="M17.75 5a.75.75 0 0 0-1.32-.488l-6 7a.75.75 0 0 0 0 .976l6 7A.75.75 0 0 0 17.75 19z" />
+						</svg>
+					</button>
 					<div class="ucg-customizer-controler-btns-container">
 						<button type="button" id="resetAll" class="ucg-customizer-controler-btn">Reset all</button>
 						<button type="button" id="replacePinkMask" class="ucg-customizer-controler-btn">Replace mask (pink)</button>
@@ -65,54 +72,72 @@
 						<label for="displayMode-compact" class="ucg-customizer-controler-compact-toggler">
 							<input type="checkbox" name="displayMode" value="compact" id="displayMode-compact"
 								class="ucg-customizer-controler-compact-toggler-checkbox">
-							<button title="Compact false" data-compact
+							<div title="Compact false" data-compact
 								class="ucg-customizer-controler-compact-toggler-btn ucg-customizer-controler-expand-btn control-active">
 								<svg class="ucg-customizer-controler-compact-toggler-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 									<path fill="currentColor" fill-rule="evenodd"
 										d="M6 4.75c-.69 0-1.25.56-1.25 1.25v3a.75.75 0 0 1-1.5 0V6A2.75 2.75 0 0 1 6 3.25h3a.75.75 0 0 1 0 1.5zM14.25 4a.75.75 0 0 1 .75-.75h3A2.75 2.75 0 0 1 20.75 6v3a.75.75 0 0 1-1.5 0V6c0-.69-.56-1.25-1.25-1.25h-3a.75.75 0 0 1-.75-.75M4 14.25a.75.75 0 0 1 .75.75v3c0 .69.56 1.25 1.25 1.25h3a.75.75 0 0 1 0 1.5H6A2.75 2.75 0 0 1 3.25 18v-3a.75.75 0 0 1 .75-.75m16 0a.75.75 0 0 1 .75.75v3A2.75 2.75 0 0 1 18 20.75h-3a.75.75 0 0 1 0-1.5h3c.69 0 1.25-.56 1.25-1.25v-3a.75.75 0 0 1 .75-.75"
 										clip-rule="evenodd" />
 								</svg>
-							</button>
-							<button title="Compact true" data-compact
+							</div>
+							<div title="Compact true" data-compact
 								class="ucg-customizer-controler-compact-toggler-btn ucg-customizer-controler-compact-btn">
 								<svg class="ucg-customizer-controler-compact-toggler-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 									<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 										d="M4 8h4V4m12 4h-4V4M4 16h4v4m12-4h-4v4" />
 								</svg>
-							</button>
+							</div>
 						</label>
 					</div>
 				</div>
 				<section id="chooser" class="ucg-customizer-chooser">
 					<h3 class="ucg-customizer-chooser-title">Body</h3>
-					<ul class="ucg-customizer-chooser-list">
+					<ul class="ucg-customizer-chooser-list ucg-customizer-chooser-list-main">
 						<li class="ucg-customizer-chooser-list-item">
 							<!-- Body types -->
 							<span class="expanded ucg-customizer-chooser-list-title">Body type</span>
-							<ul class="ucg-customizer-chooser-list">
+							<ul class="ucg-customizer-chooser-list ucg-customizer-chooser-list-visible">
 								<li class="noPreview ucg-customizer-chooser-list-item">
-									<input type="radio" id="sex-male" name="sex" checked>
-									<label for="sex-male">Male</label>
+									<label data-chooser-option="label" for="sex-male" class="ucg-customizer-chooser-option-no-preview">
+										<input data-chooser-option="input" type="radio" id="sex-male" name="sex"
+											class="ucg-customizer-chooser-input-no-preview" checked>
+										Male
+									</label>
 								</li>
 								<li class="noPreview ucg-customizer-chooser-list-item">
-									<input type="radio" id="sex-female" name="sex">
-									<label for="sex-female">Female</label>
+									<label data-chooser-option="label" for="sex-female" class="ucg-customizer-chooser-option-no-preview">
+										<input data-chooser-option="input" type="radio" id="sex-female" name="sex"
+											class="ucg-customizer-chooser-input-no-preview">
+										Female
+									</label>
 								</li>
 								<li class="noPreview ucg-customizer-chooser-list-item">
-									<input type="radio" id="sex-teen" name="sex">
-									<label for="sex-teen">Teen</label>
+									<label data-chooser-option="label" for="sex-teen" class="ucg-customizer-chooser-option-no-preview">
+										<input data-chooser-option="input" type="radio" id="sex-teen" name="sex"
+											class="ucg-customizer-chooser-input-no-preview">
+										Teen
+									</label>
 								</li>
 								<li class="noPreview ucg-customizer-chooser-list-item">
-									<input type="radio" id="sex-child" name="sex">
-									<label for="sex-child">Child</label>
+									<label data-chooser-option="label" for="sex-child" class="ucg-customizer-chooser-option-no-preview">
+										<input data-chooser-option="input" type="radio" id="sex-child" name="sex"
+											class="ucg-customizer-chooser-input-no-preview">
+										Child
+									</label>
 								</li>
 								<li class="noPreview ucg-customizer-chooser-list-item">
-									<input type="radio" id="sex-pregnant" name="sex">
-									<label for="sex-pregnant">Pregnant</label>
+									<label data-chooser-option="label" for="sex-pregnant" class="ucg-customizer-chooser-option-no-preview">
+										<input data-chooser-option="input" type="radio" id="sex-pregnant" name="sex"
+											class="ucg-customizer-chooser-input-no-preview">
+										Pregnant
+									</label>
 								</li>
 								<li class="noPreview ucg-customizer-chooser-list-item">
-									<input type="radio" id="sex-muscular" name="sex">
-									<label for="sex-muscular">Muscular</label>
+									<label data-chooser-option="label" for="sex-muscular" class="ucg-customizer-chooser-option-no-preview">
+										<input data-chooser-option="input" type="radio" id="sex-muscular" name="sex"
+											class="ucg-customizer-chooser-input-no-preview">
+										Muscular
+									</label>
 								</li>
 							</ul>
 						</li>
@@ -178,7 +203,7 @@
 
 					</ul>
 					<h3 class="ucg-customizer-chooser-title">Head</h3>
-					<ul class="ucg-customizer-chooser-list">
+					<ul class="ucg-customizer-chooser-list ucg-customizer-chooser-list-main">
 						<!-- Heads -->
 						<li class="ucg-customizer-chooser-list-item">
 							<span class="condensed ucg-customizer-chooser-list-title">Heads</span>
@@ -596,7 +621,7 @@
 						</li>
 					</ul>
 					<h3 class="ucg-customizer-chooser-title">Arms</h3>
-					<ul class="ucg-customizer-chooser-list">
+					<ul class="ucg-customizer-chooser-list ucg-customizer-chooser-list-main">
 						<!-- ARMS -->
 
 						<!-- Shoulders -->
@@ -633,7 +658,7 @@
 					</ul>
 					<!-- TORSO -->
 					<h3 class="ucg-customizer-chooser-title">Torso</h3>
-					<ul class="ucg-customizer-chooser-list">
+					<ul class="ucg-customizer-chooser-list ucg-customizer-chooser-list-main">
 
 						<!-- Dress -->
 						<li data-required="female,teen" class="ucg-customizer-chooser-list-item">
@@ -798,7 +823,7 @@
 
 					</ul>
 					<h3 class="ucg-customizer-chooser-title">Legs</h3>
-					<ul class="ucg-customizer-chooser-list">
+					<ul class="ucg-customizer-chooser-list ucg-customizer-chooser-list-main">
 						<!-- LEGS -->
 
 						<!-- Legs -->
@@ -861,7 +886,7 @@
 
 					<!-- TOOLS -->
 					<h3 class="ucg-customizer-chooser-title">Tools</h3>
-					<ul class="ucg-customizer-chooser-list">
+					<ul class="ucg-customizer-chooser-list ucg-customizer-chooser-list-main">
 						div_sheet_tool_rod
 						div_sheet_tool_smash
 						div_sheet_tool_thrust
@@ -869,7 +894,7 @@
 					</ul>
 
 					<h3 class="ucg-customizer-chooser-title">Weapons</h3>
-					<ul class="ucg-customizer-chooser-list">
+					<ul class="ucg-customizer-chooser-list ucg-customizer-chooser-list-main">
 						<!-- WEAPONS -->
 
 						<!-- Shield -->

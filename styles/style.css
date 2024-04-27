@@ -89,6 +89,8 @@
     justify-content: space-between;
     align-items: flex-start;
     height: auto;
+    position: relative;
+    overflow: clip;
 }
 
 .ucg-customizer-container {
@@ -97,8 +99,34 @@
     height: 100%;
     background-color: var(--blue-grey-bg);
     border-radius: 5px;
+    border-top-right-radius: 0;
     box-sizing: border-box;
     padding: 0 20px;
+    position: relative;
+    /* position: absolute;
+    top: 0;
+    right: 100%; */
+    /* transform: translateX(-100%); */
+}
+
+.ucg-customizer-controler-show-toggler {
+    width: 35px;
+    aspect-ratio: 1/1;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: var(--blue-grey-bg);
+}
+
+.ucg-customizer-controler-show-toggler-icon {
+    width: 80%;
+    color: var(--blue-grey);
 }
 
 .ucg-customizer {
@@ -260,6 +288,7 @@
     align-items: center;
     border-radius: 5px;
     border: 1px solid var(--blue-grey);
+    position: relative;
 }
 
 .ucg-customizer-controler-search-input {
@@ -299,7 +328,10 @@
 }
 
 .ucg-customizer-controler-compact-toggler-checkbox {
-    display: none;
+    opacity: 0;
+    position: absolute;
+    z-index: -10;
+    pointer-events: none;
 }
 
 .ucg-customizer-controler-compact-toggler-btn {
@@ -347,6 +379,23 @@
 .ucg-customizer-chooser-list {
     padding-left: 20px;
     position: relative;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.ucg-customizer-chooser-list {
+    display: none;
+}
+
+.ucg-customizer-chooser-list-main {
+    display: block !important;
+}
+
+.ucg-customizer-chooser-list-visible {
+    display: block;
 }
 
 .ucg-customizer-chooser-list::before {
@@ -399,4 +448,56 @@
 
 .ucg-customizer-chooser-list-title.expanded::after {
     transform: translateY(-50%) rotate(90deg);
+}
+
+.ucg-customizer-chooser-option-no-preview {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 3px 5px 3px 30px;
+    margin: 1px 0;
+    border: 1px solid transparent;
+    transition: all 75ms linear;
+}
+
+.ucg-customizer-chooser-option-no-preview::before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    aspect-ratio: 1/1;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3Cpath fill='%239cadce26' d='M12.003 21q-1.866 0-3.51-.708q-1.643-.709-2.859-1.924t-1.925-2.856T3 12.003t.708-3.51t1.924-2.859t2.856-1.925T11.997 3t3.51.708t2.859 1.924t1.925 2.856t.709 3.509t-.708 3.51t-1.924 2.859t-2.856 1.925t-3.509.709'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 75ms linear;
+}
+
+.ucg-customizer-chooser-option-no-preview:hover {
+    border: 1px solid var(--blue-grey);
+}
+
+.ucg-customizer-chooser-option-no-preview:hover::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3Cpath fill='%239CADCE' d='M12.003 21q-1.866 0-3.51-.708q-1.643-.709-2.859-1.924t-1.925-2.856T3 12.003t.708-3.51t1.924-2.859t2.856-1.925T11.997 3t3.51.708t2.859 1.924t1.925 2.856t.709 3.509t-.708 3.51t-1.924 2.859t-2.856 1.925t-3.509.709'/%3E%3C/svg%3E");
+}
+
+.ucg-customizer-chooser-input-no-preview {
+    /* visibility: hidden; */
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -10;
+}
+
+.chooser-option-checked {
+    border: 1px solid var(--blue) !important;
+}
+
+.chooser-option-checked::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3Cpath fill='%23266DD3' d='M12.003 21q-1.866 0-3.51-.708q-1.643-.709-2.859-1.924t-1.925-2.856T3 12.003t.708-3.51t1.924-2.859t2.856-1.925T11.997 3t3.51.708t2.859 1.924t1.925 2.856t.709 3.509t-.708 3.51t-1.924 2.859t-2.856 1.925t-3.509.709'/%3E%3C/svg%3E") !important;
 }
