@@ -688,6 +688,7 @@ $(document).ready(function () {
         $this = $(this);
         if (!$this.parent().hasClass("hasPreview") && !$this.parent().hasClass("noPreview")) {
           var prev = document.createElement("canvas");
+          $(prev).addClass("ucg-customizer-chooser-option-preview");
           prev.setAttribute("width", universalFrameSize);
           prev.setAttribute("height", universalFrameSize);
           var prevctx = prev.getContext("2d");

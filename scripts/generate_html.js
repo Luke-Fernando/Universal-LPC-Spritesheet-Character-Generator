@@ -43,7 +43,7 @@ function generateListHTML(json) {
   const endHTML = "</ul></li>";
 
   var idx = 0;
-  var listItemsHTML = `<li class="ucg-customizer-chooser-list-item"><input type="radio" id="${typeName}-none" name="${typeName}"> <label for="${typeName}-none">No ${typeName}</label></li>`;
+  var listItemsHTML = `<li class="ucg-customizer-chooser-list-item"><label data-chooser-option="label" for="${typeName}-none" class="ucg-customizer-chooser-option-has-preview"><input data-chooser-option="input" class="ucg-customizer-chooser-input-has-preview" type="radio" id="${typeName}-none" name="${typeName}">No ${typeName}</label></li>`;
   for (variant in variants) {
     const itemName = variants[idx];
     const itemIdFor = typeName + "-" + name.replaceAll(" ", "_") + "_" + itemName.replaceAll(" ", "_");
