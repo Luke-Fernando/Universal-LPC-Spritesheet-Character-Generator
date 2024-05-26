@@ -783,6 +783,15 @@ $(document).ready(function () {
     })
   }
   indicateChoosed();
+
+  function toggleSideMenu() {
+    const sideMenu = $("#side-menu");
+    const sideMenuToggle = $("#side-menu-toggle");
+    sideMenuToggle.click(function () {
+      sideMenu.toggleClass("side-menu-hide");
+    })
+  }
+  toggleSideMenu();
 });
 
 function splitCsv(str) {

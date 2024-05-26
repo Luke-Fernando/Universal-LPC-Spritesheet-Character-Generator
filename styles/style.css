@@ -94,19 +94,30 @@
 }
 
 .ucg-customizer-container {
-    max-width: 40%;
-    width: max-content;
+    width: 500px;
     height: 100%;
-    background-color: var(--blue-grey-bg);
+    background-color: white;
     border-radius: 5px;
     border-top-right-radius: 0;
     box-sizing: border-box;
     padding: 0 20px;
     position: relative;
-    /* position: absolute;
+    z-index: 50;
+}
+
+.ucg-customizer-container::before {
+    content: "";
+    position: absolute;
     top: 0;
-    right: 100%; */
-    /* transform: translateX(-100%); */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--blue-grey-bg);
+    z-index: -10;
+}
+
+.side-menu-hide {
+    left: 0;
 }
 
 .ucg-customizer-controler-show-toggler {
@@ -381,13 +392,15 @@
     position: relative;
     height: auto;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
 }
 
 .ucg-customizer-chooser-list {
     display: none;
+    width: 100%;
+}
+
+.ucg-customizer-chooser-list-preview .ucg-customizer-chooser-list-item {
+    display: inline-block;
 }
 
 .ucg-customizer-chooser-list-main {
@@ -395,6 +408,7 @@
 }
 
 .ucg-customizer-chooser-list-visible {
+    width: max-content;
     display: block;
 }
 
@@ -552,4 +566,27 @@
 
 .ucg-customizer-chooser-option-has-preview:hover::before {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3Cpath fill='%239CADCE' d='M12.003 21q-1.866 0-3.51-.708q-1.643-.709-2.859-1.924t-1.925-2.856T3 12.003t.708-3.51t1.924-2.859t2.856-1.925T11.997 3t3.51.708t2.859 1.924t1.925 2.856t.709 3.509t-.708 3.51t-1.924 2.859t-2.856 1.925t-3.509.709'/%3E%3C/svg%3E");
+}
+
+@media (max-width: 900px) {
+    .ucg-customizer-container {
+        position: absolute;
+        z-index: 50;
+        left: 0;
+        background-color: white;
+    }
+
+    .side-menu-hide {
+        left: -500px;
+    }
+}
+
+@media (max-width: 550px) {
+    .ucg-customizer-container {
+        width: 90%;
+    }
+
+    .side-menu-hide {
+        left: -90%;
+    }
 }

@@ -34,7 +34,9 @@ function generateListHTML(json) {
   const requiredSex = requiredSexes.join(",");
 
   const startHTML =
-    `<li data-required="[REQUIRED_SEX]" class="ucg-customizer-chooser-list-item"><span class="condensed ucg-customizer-chooser-list-title">${name}</span><ul class="ucg-customizer-chooser-list">`.replace(
+    `<li data-required="[REQUIRED_SEX]" class="ucg-customizer-chooser-list-item">
+    <span class="condensed ucg-customizer-chooser-list-title">${name}</span>
+    <ul class="ucg-customizer-chooser-list ucg-customizer-chooser-list-preview">`.replace(
       "[REQUIRED_SEX]",
       requiredSex
     );
